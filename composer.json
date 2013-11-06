@@ -1,0 +1,24 @@
+{
+    "name": "mednix/login",
+    "description": "",
+    "authors": [
+        {
+            "name": "mednix",
+            "email": "med.programmer@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0",
+        "illuminate/support": "4.0.*"
+    },
+    "autoload": {
+        "classmap": [
+            "src/migrations",
+            "src/controllers"
+        ],
+        "psr-0": {
+            "Mednix\\Login\\": "src/"
+        }
+    },
+    "minimum-stability": "dev"
+}
