@@ -51,7 +51,7 @@ class LoginUninstallCommand extends Command {
         else{
             $this->info(':::::Uninstalling the package...:::::');
 
-                $this->info(':::::Rolling back the migration:::::');
+                $this->info('   :::::Rolling back the migration:::::');
                     $dir=__DIR__."/../../../migrations";
                     $migration=new \stdClass();
                     $file=basename($this->files->files($dir)[0],'.php');
@@ -61,10 +61,10 @@ class LoginUninstallCommand extends Command {
                     $this->repository->delete($migration);
                     $this->files->cleanDirectory($dir);
 
-                $this->info(':::::Deleting the user model:::::');
+                $this->info('   :::::Deleting the user model:::::');
                     $model=app_path().'/models/User.php';
                     $this->files->delete($model);
-                $this->info('::::: dumping the composer autoloader:::::');
+                $this->info('   ::::: dumping the composer autoloader:::::');
                     $chwd='cd '.__DIR__.'/../../../../.';
                     $composer=base_path().'/composer.phar';
                     $this->info(shell_exec($chwd.' && '.'php '.$composer.' dump-autoload'));

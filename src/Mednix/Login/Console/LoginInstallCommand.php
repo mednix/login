@@ -46,7 +46,7 @@ class LoginInstallCommand extends Command {
         }
         else{
             $this->info(':::::Installing the package...:::::');
-                $this->info(':::::Generating the migration file:::::');
+                $this->info('   :::::Generating the migration file:::::');
                     $table=\Config::get('login::table');
                     $clazz=ucfirst($table);
                     $date=new \DateTime('now');
@@ -63,7 +63,7 @@ class LoginInstallCommand extends Command {
                     $content=str_replace($pattern,$replacement,$content);
                     $this->files->put($migration,$content);
 
-                $this->info(':::::Generating the user model:::::');
+                $this->info('   :::::Generating the user model:::::');
                     $pattern='#table_name#';
                     $replacement=$table;
                     $user=__DIR__.'/user.txt';
@@ -72,12 +72,12 @@ class LoginInstallCommand extends Command {
                     $model=app_path().'/models/User.php';
                     $this->files->put($model,$content);
 
-                $this->info('::::: dumping the composer autoloader:::::');
+                $this->info('   ::::: dumping the composer autoloader:::::');
                     $chwd='cd '.__DIR__.'/../../../../.';
                     $composer=base_path().'/composer.phar';
                     $this->info(shell_exec($chwd.' && '.'php '.$composer.' dump-autoload'));
 
-                $this->info(':::::Executing the migration:::::');
+                $this->info('   :::::Executing the migration:::::');
                     $this->call('migrate',array('--bench'=>'mednix/login'));
                  \Config::set('login::installed',true);
             $this->info(':::::Package installed successfully!:::::');
