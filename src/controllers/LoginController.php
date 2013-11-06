@@ -41,7 +41,7 @@ class LoginController extends \BaseController {
     function logout(){
 
         \Auth::logout();
-        return \Redirect::route('home');
+        return \Redirect::to('/');
     }
 
 } 
