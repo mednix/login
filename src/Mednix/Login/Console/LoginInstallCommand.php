@@ -85,7 +85,7 @@ class LoginInstallCommand extends Command {
                     $this->info(shell_exec($chwd.' && '.'php '.$composer.' dump-autoload'));
 
                 $this->info('   :::::Executing the migration:::::');
-                    $this->call('migrate',array('--bench'=>'mednix/login'));
+                    $this->call('migrate',array('--package'=>'mednix/login'));
                  \Config::set('login::installed',true);
             $this->info(':::::Package installed successfully!:::::');
 
