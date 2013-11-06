@@ -71,7 +71,10 @@ class LoginInstallCommand extends Command {
                     $content=str_replace($pattern,$replacement,$content);
                     $model=app_path().'/models/User.php';
                     $this->files->put($model,$content);
-
+                $this->info('   :::::Generating the the login layout:::::');
+                    $layout=app_path().'/views/layouts/login.blade.php';
+                    $content=$this->files->get(__DIR__.'/layouts.login.txt');
+                    $this->files->put($layout,$content);
                 $this->info('   ::::: dumping the composer autoloader:::::');
                     $chwd='cd '.__DIR__.'/../../../../.';
                     $composer=base_path().'/composer.phar';

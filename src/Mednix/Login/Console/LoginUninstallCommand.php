@@ -64,6 +64,9 @@ class LoginUninstallCommand extends Command {
                 $this->info('   :::::Deleting the user model:::::');
                     $model=app_path().'/models/User.php';
                     $this->files->delete($model);
+                $this->info('   :::::Deleting the login layout:::::');
+                    $layout=app_path().'/views/layouts/login.blade.php';
+                    $this->files->delete($layout);
                 $this->info('   ::::: dumping the composer autoloader:::::');
                     $chwd='cd '.__DIR__.'/../../../../.';
                     $composer=base_path().'/composer.phar';
