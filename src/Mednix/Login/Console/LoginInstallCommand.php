@@ -71,7 +71,7 @@ class LoginInstallCommand extends Command {
                     $content=str_replace($pattern,$replacement,$content);
                     $model=app_path().'/models/User.php';
                     $this->files->put($model,$content);
-                $this->info('   :::::Generating the the login layout:::::');
+                $this->info('   :::::Generating the login layout:::::');
                     $layout=app_path().'/views/layouts/login.blade.php';
                     if(!$this->files->exists(dirname($layout))){
                         $this->files->makeDirectory(dirname($layout));
